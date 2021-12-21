@@ -1,0 +1,69 @@
+
+/* html, body, h1 등 태그 셀렉터(선택자) 임 */
+
+
+body {
+    border: 3px dashed blue;
+} 
+
+html {   
+    font-size: 20px;                                            /* 폰트사이즈 */
+    /* font-family: '나눔고딕코딩', '굴림체', 'serif', 'sans-serif'; /* 글꼴 */
+    line-height : 2;                                            /* 줄간격 */
+    /* color: black ;  /* 글 색상, 상속됨 */
+    /* background-color: rgb(255, 252, 252); /* 배경색상 */
+}
+
+h1 {
+    color: blueviolet;
+}
+
+div h2 {
+    color: blue;
+}
+
+/* '#' ID 셀렉터(선택자) 임 */
+
+#column1 > h2 {
+    color: red;                 /* 상속으로 인해 안보임 */
+}
+
+.footer {
+    color: blue;
+}
+
+.column3 {
+    border: 5px solid blue;     /* 컬럼3에 대해 사각틀 사용 */
+    margin: 50px;                 /* top, bottom, left, right 동일한 margin */
+    padding: 50px;                /* 틀과 글자와의 거리*/
+}
+
+/* 타이틀 인라인으로 형식 변경 */
+.title {
+    display: inline;
+}
+
+.list {
+    display: inline;
+    position: absolute;
+    left: 500px;
+    bottom: 15px;
+}
+
+/* li 항목들 인라인 기반으로 변경하기, 네비게이션 바 생성 */
+
+.list-item {
+    display: inline;
+}
+
+.container {
+    border: 1px dashed blue;
+    position: relative;
+}
+
+.span {
+    position: absolute    /*relative;   현기준점에서 이동
+    top: -10px;*/ 
+    top: 30px 
+    left: 180px    /* 앱솔루트는 바로 상위 태그 기준으로 움직임
+}
