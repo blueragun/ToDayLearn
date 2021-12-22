@@ -53,11 +53,13 @@ div h2 {
 /* li 항목들 인라인 기반으로 변경하기, 네비게이션 바 생성 */
 
 .list-item {
-    display: inline;
+    display: inline-block;
+    /* inline 을 사용하면 width를 지정할 수 없다
+    inline-block은 넓이를 지정할 수 있다 */
+    width: 200px;
 }
 
 .container {
-    border: 1px dashed blue;
     position: relative;
 }
 
