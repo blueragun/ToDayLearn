@@ -9,7 +9,7 @@ from .models import *
 # Create your views here.
 def index( request ) :
     #DB의 내용을 브라우저에 전달하기 위한 코드를 추가
-    todos = Todo.objects.all()   # 테이블 내의 모든 내용을 조회 
+    todos = Todo.objects.all()   # 테이블 내의 모든 내용을 조회 투두스를 커리셋형태로 함
     content = {'todos':todos}    # 딕셔너리 형태로 한 후 아래 리턴문의 content로 보내준다
     return render(request, "my_to_do_app/index.html", content)
 
@@ -30,3 +30,10 @@ def createTodo( request ) :
     new_todo.save()
     
     return HttpResponseRedirect(reverse('index'))
+
+def deleteTodo( request ) :
+    # print( '요청변수:', request.GET['todoNum'] )
+    todo = Todo.objects.get(id=request.GET['todoNum'])
+    todo.delete()
+    return HttpResponseRedirect(reverse('index'))
+    

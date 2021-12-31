@@ -1,0 +1,73 @@
+    {% extends 'board/base.html' %}
+    {% block content %}
+    <div class='container'>
+      <form action='../view/' method='GET'>
+        {% csrf_token %}
+        <input type='hidden' name='id' value={{post.id}} >
+        <div class="form-group">
+          <label for="exampleInputPassword1">작성 날짜</label>
+          <input type="date" class="form-control" id='now_date' name='createDate' value="{{post.createDate|date:'Y-m-d'}}" readonly>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">작성자</label>
+          <input type="text" class="form-control" placeholder="작성자" name='user' value={{post.user.username}} readonly>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">글 제목</label>
+          <input type="text" class="form-control" name='subject' value={{post.subject}} readonly>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputFile">게시글</label>
+          <textarea class="form-control" rows=10 name='content' readonly> {{post.content}} </textarea>
+      </form>
+    </div>
+
+    <div class="container">
+      <table class='table'>
+        <thead>
+          <tr>
+            <th> 번호 </th>
+            <th> 시간 </th>
+            <th> 작성자 </th>
+            <th> 내용 </th>
+          <!-- 글 수정과 글 삭제 컬럼을 추가 -->
+            <th style='width: 5%'> </th>
+            <th style='width: 5%'> </th>
+          </tr>
+       </thead>
+
+        <tbody>
+         {% for row in rows %}
+         <tr>
+           <td> {{row.id}} </td>
+           <td> {{row.createDate}} </td>
+           <td> {{row.user.username}} </td>  <!-- 유저필드의 유저네임을 가져옴-->
+           <td>
+                {{row.content}}</a>
+           </td>
+           <td>
+              {% if user.is_authenticated %}  <!-- 로그인 했을 경우에만 보임-->
+              <a href='update/?id={{row.id}}'>
+                 <button type="submit" class="btn btn-warning">수정</button>
+              </a>
+           </td>
+           <td>
+              <form action='./deleteBoard/' method="GET">
+                 <input type="hidden" id='BNum' name='BNum' value={{row.id}}>
+                 <button type="submit" class="btn btn-danger">삭제</button>
+              </form>
+              {% endif %}
+           </td>
+         </tr>
+
+         {% endfor %}
+        </tbody>
+      </table>
+         <div class="container">
+           <a href='../comment/'>
+             <button type="submit" class="btn btn-primary">댓글 작성하기</button>
+           </a>  
+         </div>
+    </div>  
+
+    {% endblock %}
