@@ -1,0 +1,30 @@
+1. 4차산업혁명에 따른 직종변화 추이(예측)
+2. 스타벅스(or 카페) 창업 위치 추천
+3. 전기차 충전소 설치? 구축?
+
+
+------------------------------------------------
+물류 유동량 예측 :  https://dacon.io/competitions/official/235867/overview/description
+재정 데이터 시각화 : https://dacon.io/competitions/official/235767/codeshare
+한국 부동산 데이터 시각화 경진대회 : https://dacon.io/competitions/official/235724/codeshare/2737
+신용가드 거래 데이터 시각화 : https://dacon.io/competitions/official/42473/codeshare
+구직자를 위한 기업트랜드 시각화 경진대회 :  https://dacon.io/competitions/official/235866/codeshare
+KNOW기반 직업 추천 알고리즘 경진대회 : https://dacon.io/competitions/official/235865/codeshare/4140?page=1&dtype=recent
+문화빅데이터	https://www.bigdata-culture.kr/bigdata/user/main.do
+관광빅데이터	https://datalab.visitkorea.or.kr/datalab/portal/bdp/getHowPlatformForm.do
+빅데이터	https://datalab.visitkorea.or.kr/datalab/portal/main/getMainForm.do
+빅데이터	https://www.bigcontest.or.kr/community/board.php?gubun=notice
+빅데이터	http://www.tourbigdata.kr/award.asp
+빅데이터	https://www.startupidea.kr/award/
+빅데이터	https://www.kist.re.kr/kist_web/?sub_num=4006&state=view&idx=2593
+빅데이터	https://www.contestkorea.com/sub/list.php?Txt_bcode=030220005
+빅데이터	https://bigdata.seoul.go.kr/noti/selectPageListTabNoti.do?r_id=P260
+문화관광빅데이터 2020 공모전 수상작	http://www.tourbigdata.kr/award.asp
+
+
+
+1. AI 발전에 따른 직업 변동 추이
+2. 가게 창업 위치 추천(선점, 브랜드 고르기)
+3. 1인가구 증가에 따른 살기 좋은 구 추천
+4. 전기차 증가에 따른 충전소 수요 예측
+5. 한국부동산 데이터 활용
