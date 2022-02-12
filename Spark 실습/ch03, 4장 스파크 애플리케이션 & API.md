@@ -147,6 +147,63 @@ ccc = ccc.flatMapValues(a => {
   amounts.foldByKey(100000)((p1, p2) => p1 + p2).collect()
   ```
 
-  
 
-- 
+### 8. aggregateByKey 사용
+
+- aggregateByKey는 zeroValue를 받아 RDD값을 병합한다는 점에서 foldByKey, reduceByKey와 유사하지만 값의 타입을 바꿀 수 있다.
+
+- 두가지 함수를 전달해야함 1. [(U, V) =>U ] 변환함수, 2.[(U, U) => U] 하는 병합함수
+
+  ```
+  val prods = transByCust.aggregateByKey(List[String]())( ## zeroValue에 빈 리스트를 지정
+  (prods, tran) => prods ::: List(tran(3)), ## 변환함수(파티션별로 요소를 병합), 제품에 리스트 추가
+  (prods1, prods2) => prods1 ::: prods2)   ## 병합함수(최종 결과를 병합), 키가 같은 두 리스트를 이어붙인다
+  ```
+
+
+
+## 데이터 파티셔닝
+
+- 스파크 데이터 파티셔닝 : Data를 여러 클러스터 노드로 분할하는 것
+- 스파크 성능, 리소스 점유량에 영향을 줄 수 있는 RDD 기본 개념
+- 스파크 클러스터 : 병렬 연산이 가능하고 네트워크로 연결된 노드의 집합
+- RDD 파티션 : RDD 데이터의 일부(조각, 슬라이스)
+- ex)
+  - 15줄 짜리 text를 여러 파티션으로 분할해 클러스터 노드에 분산, 이렇게 분산된 파티션이 모여 RDD 형성
+    - 15 text -> | 노드(1) : 파티션(3text) | 노드(2) : 파티션(3text) | 노드(3) : 파티션(3text) | 노드(4) : 파티션(3text) | 노드(5) : 파티션(3text) |, 각 노드는 네트워크로 연결됨, 파티션이 모여 하나의 RDD 형성
+
+- 셔플링 : 파티션 간의 물리적인 데이터 이동, 새로운 RDD의 파티션을 만들려고 여러 파티션의 데이터를 합칠 떄 발생
+  - aggregateByKey 함수 사용시 발생
+
+
+
+## 데이터 조인
+
+- 내부조인(Join)
+- 왼쪽 외부조인(leftOuterJoin)
+- 오른쪽 외부조인(rightOuterJoin)
+- 외부조인(fullOuterJoin)
+
+
+
+## 데이터 정렬
+
+- repartitionAndSortWithinPartition : 리파티셔닝과 정렬작업을 동시에 수행, 성능이 좋음
+
+- sortByKey
+
+  ```
+  val sortedProds = totalsAndProds.sortBy(_._2._2(1))
+  ## _._2 : pairRDD 값임
+  ## _._2._2(1) : 해당 데이터의 튜플 중 상품정보 배열의 두번째 요소 참조
+  ```
+
+- sorkBy
+
+
+
+## 데이터 그루핑
+
+- aggregateByKey
+- groupByKey
+- combineByKey
