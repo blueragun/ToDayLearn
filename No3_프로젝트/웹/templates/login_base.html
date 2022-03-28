@@ -13,22 +13,11 @@
 </head>
 
 <body>
-<!-- {% if session['Email'] %}
-<p>{{session['Email']}}</p>
-{% endif %} -->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">BAPPU</a>
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto">
-      {% if session['Email'] %}
-      <p>{{session['Email']}}</p>
-      {% endif %}
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('logout') }}">로그아웃</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('info') }}">내정보</a>
-      </li>
     </ul>
 
 
