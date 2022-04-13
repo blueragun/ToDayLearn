@@ -17,15 +17,21 @@ class ImageTable(image_db.Model):
         image_db.String(1000, 'utf8mb4_unicode_ci'))
     image = image_db.Column(
         image_db.String(2000, 'utf8mb4_unicode_ci'))
+    cal = image_db.Column(
+        image_db.String(2000, 'utf8mb4_unicode_ci'))
+    name = image_db.Column(
+        image_db.String(2000, 'utf8mb4_unicode_ci'))
     datetime = image_db.Column(
         image_db.DateTime, default=datetime.datetime.now)
 
-    def __init__(self, Email, image):
+    def __init__(self, Email, image, cal, name):
         self.Email = Email
         self.image = image
+        self.cal = cal
+        self.name = name
 
-    def add_image(email, image_path):
-        user = ImageTable(email, image_path)
+    def add_image(email, image_path, cal, name):
+        user = ImageTable(email, image_path, cal, name)
         image_db.session.add(user)
         image_db.session.commit()
         return user

@@ -74,7 +74,7 @@ class UserAccount(Resource):
         user_pw = request.json['user_pw1']
         user_pw2 = request.json['user_pw2']
         if user_pw != user_pw2:
-            return ({'massage': 'pw difference', 'status': False})
+            return ({'massage': 'pw', 'status': False})
 
         else:
             result = UserTable.add_user(user_email, user_name, user_pw)

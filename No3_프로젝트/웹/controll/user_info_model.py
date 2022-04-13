@@ -13,21 +13,21 @@ class user_info_table(user_info_db.Model):
     ID = user_info_db.Column(user_info_db.Integer,
                              primary_key=True, autoincrement=True)
     Email = user_info_db.Column(
-        user_info_db.String(1000, 'utf8mb4_unicode_ci'))
+        user_info_db.String(50, 'utf8mb4_unicode_ci'))
     age = user_info_db.Column(user_info_db.Integer)
-    sex = user_info_db.Column(user_info_db.String(1000, 'utf8mb4_unicode_ci'))
+    sex = user_info_db.Column(user_info_db.String(10, 'utf8mb4_unicode_ci'))
     weight = user_info_db.Column(
         user_info_db.Integer)
     height = user_info_db.Column(
         user_info_db.Integer)
     exercise = user_info_db.Column(
-        user_info_db.String(1000, 'utf8mb4_unicode_ci'))
+        user_info_db.String(10, 'utf8mb4_unicode_ci'))
     disease = user_info_db.Column(
-        user_info_db.String(1000, 'utf8mb4_unicode_ci'))
+        user_info_db.String(10, 'utf8mb4_unicode_ci'))
     drink = user_info_db.Column(
-        user_info_db.String(1000, 'utf8mb4_unicode_ci'))
+        user_info_db.String(10, 'utf8mb4_unicode_ci'))
     smoke = user_info_db.Column(
-        user_info_db.String(1000, 'utf8mb4_unicode_ci'))
+        user_info_db.String(10, 'utf8mb4_unicode_ci'))
     datetime = user_info_db.Column(
         user_info_db.DateTime, default=datetime.datetime.now)
 
