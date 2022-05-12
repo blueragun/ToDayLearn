@@ -1,0 +1,32 @@
+# Strings
+
+- lenth function
+  - fruit = 'banana'
+  - x = len(fruit)
+  - print(x)
+  - 6
+
+- slicing string
+  - s = 'monty python'
+  - print(s[0:4])
+  - mont
+  - 마지막은 산정하지 않는다
+- string concatenation
+  - a = 'hello'
+  - b = a + 'there'
+  - print(b)
+  - hellothere
+  - c = a + ' ' + 'there'
+  - print(c)
+  - hello there
+  - 바로 더하면 띄어쓰기가 안되어 있다, 띄어쓰기가 필요하면 스페이스를 추가해야한다.
+- string library
+  - greet = "Hello Bob"
+  - zap = greet.lower()
+  - print(zap)
+  - hello bob   -> lower() 는 대문자를 소문자로 변환한다
+- lower(), replace(), lstrip(), rstrip(), strip(), startswith()
+  - lstrip() 왼쪽 공백 추가
+  - rstrip() 오른쪽 공백 추가
+  - strip() string의 시작과 끝의 공백제거
+  - startswith()  시작단어가 무엇인가
