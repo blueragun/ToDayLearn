@@ -35,7 +35,7 @@
     el: "#app",
     methods: {
       test_post: () => {
-        axios("http://13.112.232.65:8999/user_account/", {
+        axios("http://bp.aidetector.link/user_account/", {
           method: "post",
           data: {
             user_email: document.getElementById('user_email').value,
@@ -49,14 +49,14 @@
               $.cookie('token', response.data['token']);
               $.cookie('user_email', response.data['user_email']);
               alert('login success')
-              window.location.href = 'http://13.112.232.65:8999/mainpage/test';
+              window.location.href = 'http://bp.aidetector.link/mainpage/test';
             } else {
               if (response.data['massage'] == 'ID') {
                 alert('change ID');
-                window.location.href = 'http://13.112.232.65:8999/mainpage/login';
+                window.location.href = 'http://bp.aidetector.link/mainpage/login';
               } else {
                 alert('change PW');
-                window.location.href = 'http://13.112.232.65:8999/mainpage/login';
+                window.location.href = 'http://bp.aidetector.link/mainpage/login';
               }
 
             }

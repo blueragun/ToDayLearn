@@ -16,25 +16,26 @@
 
 <body>
   <nav class="navbar navbar-expand-sm bg-white navbar-dark justify-content-first">
-    <a class="navbar_1-brand" onclick="location.href='/mainpage'">BAPPU</a>
-      <ul class="nav ml-auto mr-1">
-        <li class="nav-item" >
-          <a class="nav-item" onclick="location.href='/mainpage/info'">내정보</a>
-        </li>
-        <li class="nav-item" >
-          <a class="nav-item" onclick="location.href='/status'">기저질환</a>
-        </li>
-        <li class="nav-item" >
-          <a class="nav-item" style="justify-content-end; margin-right: 2px;" onclick="location.href='/mainpage/logout'">로그아웃</a>
-        </li>
-      </ul>
+    <a class="navbar_1-brand" onclick="location.href='/mainpage/'">BAPPU</a>
+    <ul class="nav ml-auto mr-1">
+      <li class="nav-item">
+        <a class="nav-item" onclick="location.href='/mainpage/info'">내정보</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item" onclick="location.href='/status/'">기저질환</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item" style="justify-content-end; margin-right: 2px;"
+          onclick="location.href='/mainpage/logout'">로그아웃</a>
+      </li>
+    </ul>
   </nav>
   {% block content %}
   {% endblock %}
 
 
 
-  
+
 </body>
 
 </html>

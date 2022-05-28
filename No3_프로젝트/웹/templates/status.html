@@ -13,15 +13,15 @@
     <div class="box_1">
         <h1> 알러지 발생 음식 유무 </h1>
         <div class="box_6 box1">
-          <p>
+            <p>
             <div id="yabanner" style="margin: 15px 0 15px auto;"></div>
-          </p>
-          <form id="uploadForm" enctype="multipart/form-data">
-            <input type="file" id="imageInput" />
-          </form>
-          <hr />
-          <button type="button" class="custom-btn btn-11 btn-large" onclick="upload()">업로드</button>
-          <button type="button" class="custom-btn btn-11 btn-large" onclick="location.href='/mainpage'">메인으로</button>
+            </p>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" id="imageInput" />
+            </form>
+            <hr />
+            <button type="button" class="custom-btn btn-11 btn-large" onclick="upload()">업로드</button>
+            <button type="button" class="custom-btn btn-11 btn-large" onclick="location.href='/mainpage/'">메인으로</button>
         </div>
     </div>
 </div>
@@ -33,7 +33,7 @@
         el: "#app",
         methods: {
             test_post: () => {
-                axios("http://13.112.232.65:8999/calorie/", {
+                axios("http://bp.aidetector.link/calorie/", {
                     method: "post",
                     data: {
                         user_email: decodeURIComponent(document.cookie),
@@ -73,7 +73,7 @@
         formData.append("user_email", decodeURIComponent(document.cookie));
         $.ajax({
             type: "DELETE",
-            url: "http://13.112.232.65:8999/image/",
+            url: "http://bp.aidetector.link/image/",
             processData: false,
             contentType: false,
             data: formData,
@@ -104,7 +104,7 @@
         formData.append("number", number);
         $.ajax({
             type: "PUT",
-            url: "http://13.112.232.65:8999/image/",
+            url: "http://bp.aidetector.link/image/",
             processData: false,
             contentType: false,
             data: formData,
@@ -212,7 +212,7 @@
 
         $.ajax({
             type: "POST",
-            url: "http://13.112.232.65:8999/status/",
+            url: "http://bp.aidetector.link/status/",
             processData: false,
             contentType: false,
             data: formData,

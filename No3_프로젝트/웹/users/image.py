@@ -18,11 +18,11 @@ image = Namespace('image')
 class Register(Resource):
     def post(self):
 
-        parser = argparse.ArgumentParser(
-            description="Flask app exposing yolov5 models")
-        parser.add_argument("--port", default=5000,
-                            type=int, help="port number")
-        args = parser.parse_args()
+        # parser = argparse.ArgumentParser(
+        #     description="Flask app exposing yolov5 models")
+        # parser.add_argument("--port", default=8989,
+        #                     type=int, help="port number")
+        # args = parser.parse_args()
 
         model = torch.hub.load(
             "./yolov5_models/yolov5", "custom", path='./yolov5_models/AFv1.pt', source='local', force_reload=True)
@@ -63,44 +63,53 @@ class Register(Resource):
         for i in abc:
             temp.append(result3[int(i)])
 
-        return jsonify({'result': result, 'result2': result2, 'result3': temp})
+        return make_response(jsonify({'result': result, 'result2': result2, 'result3': temp}))
 
 
 @ image.route('/')
 class Register(Resource):
     def put(self):
         data = request.form['data']
-        temp_data = data.split(',')[:-1]
+        temp_data = data.split(',')[1:-1]
+        print(temp_data)
         user_data = request.form['user_email']
         number = request.form['number']
-        number_data = number.split(',')[:-1]
+        number_data = number.split(',')[1:-1]
+        data_dict = {}
+        for i in range(len(temp_data)):
+            if temp_data[i] in data_dict:
+                if int(data_dict[temp_data[i]]) >= int(number_data[i]):
+                    pass
+                else:
+                    data_dict[temp_data[i]] = number_data[i]
+
+            else:
+                data_dict[temp_data[i]] = number_data[i]
 
         user_email = list(filter(lambda x: 'user_email' in x,
                                  user_data.split(';')))[0].split('=')[1]
         result2 = ImageTable.get_image(user_email)[-1].cal
         result3 = food_model.get()
+
         abc = result2[1:-1]
         abc = abc.split()
 
-        temp = []
+        temp = {}
         for i in abc:
-            temp.append(result3[int(i)])
+            temp[result3[int(i)][0]] = result3[int(i)][1:]
+            # temp.add(result3[int(i)])
 
-        for idx, val in enumerate(number_data):
+        for idx, val in data_dict.items():
             if int(val) != 1:
                 temp2 = []
                 for i in range(len(temp[idx])):
-                    if i == 0 or i == 1:
-                        temp2.append(temp[idx][i])
-                    else:
-                        temp2.append(temp[idx][i] * int(val))
+                    temp2.append(temp[idx][i] * int(val))
                 temp[idx] = temp2
+        print(temp)
 
         sum_cal = np.array([0] * 14)
-        for k in temp_data:
-            for j in range(len(temp)):
-                if k == temp[j][0]:
-                    sum_cal += np.array(temp[j][2:]).astype(int)
+        for k in data_dict.keys():
+            sum_cal += np.array(temp[k][1:]).astype(int)
 
         today_cal.add_cal(user_email, *sum_cal)
 

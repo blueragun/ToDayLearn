@@ -52,7 +52,7 @@ class Mainpage(Resource):
 class Login(Resource):
     def get(self):
         if 'token' in session:
-            return make_response(redirect(url_for('mainpage_mainpage')))
+            return make_response(redirect('http://bp.aidetector.link/mainpage/'))
         else:
             return make_response(render_template('login.html'))
 
@@ -70,9 +70,9 @@ class Register(Resource):
     def get(self):
         if 'token' in session:
             session.pop('token')
-            return make_response(redirect(url_for('mainpage_login')))
+            return make_response(redirect('http://bp.aidetector.link/mainpage/login'))
         else:
-            return make_response(redirect(url_for('mainpage_login')))
+            return make_response(redirect('http://bp.aidetector.link/mainpage/login'))
 
 
 @ mainpage.route('/info')
@@ -87,7 +87,7 @@ class Register(Resource):
                 user = None
             return make_response(render_template('info.html', user=user))
         else:
-            return make_response(redirect(url_for('mainpage_login')))
+            return make_response(redirect('http://bp.aidetector.link/mainpage/login'))
 
 
 @ mainpage.route('/fig')
@@ -277,9 +277,10 @@ class Register(Resource):
 
         session['token'] = token
 
-        return make_response(redirect(url_for('mainpage_login')))
+        return make_response(redirect('http://bp.aidetector.link/mainpage/'))
 
-@ mainpage.route('/secret') 
-class Register(Resource):    
+
+@ mainpage.route('/secret')
+class Register(Resource):
     def get(self):
-       return make_response(render_template('secret.html'))   
+        return make_response(render_template('secret.html'))

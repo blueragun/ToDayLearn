@@ -23,11 +23,11 @@ class Register(Resource):
 
     def post(self):
 
-        parser = argparse.ArgumentParser(
-            description="Flask app exposing yolov5 models")
-        parser.add_argument("--port", default=5000,
-                            type=int, help="port number")
-        args = parser.parse_args()
+        # parser = argparse.ArgumentParser(
+        #     description="Flask app exposing yolov5 models")
+        # parser.add_argument("--port", default=5000,
+        #                     type=int, help="port number")
+        # args = parser.parse_args()
 
         model = torch.hub.load(
             "./yolov5_models/yolov5", "custom", path='./yolov5_models/test.pt', source='local', force_reload=True)

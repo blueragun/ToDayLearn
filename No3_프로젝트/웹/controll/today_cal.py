@@ -69,3 +69,8 @@ class today_cal(today_cal_db.Model):
         today_cal_db.session.commit()
 
         return user
+
+    def search(Email):
+        user = today_cal.query.filter(
+            (today_cal.Email == Email)).all()
+        return user

@@ -8,7 +8,8 @@
     <div class="row">
       <div class="col">
         <div id="p1">1. 나 이(만) :
-          <input class="input_1" type="text" id="age" name="age" placeholder="나이" required="required" value="{{user.age}}" />
+          <input class="input_1" type="text" id="age" name="age" placeholder="나이" required="required"
+            value="{{user.age}}" />
         </div>
         <div id="p1" class="btn-group" data-toggle="buttons">
           2. 성별 :
@@ -20,10 +21,12 @@
           </label>
         </div>
         <div id="p1">3. 체중(Kg) :
-          <input  class="input_1" type="text" id="weight" name="weight" value="{{user.weight}}" placeholder="체중" required="required" style="margin-bottom:20px;" />
+          <input class="input_1" type="text" id="weight" name="weight" value="{{user.weight}}" placeholder="체중"
+            required="required" style="margin-bottom:20px;" />
         </div>
         <div id="p1">4. 신장(cm) :
-          <input class="input_1" type="text" id="height" name="height" value="{{user.height}}" placeholder="신장(키)" required="required" style="margin-bottom:20px;" />
+          <input class="input_1" type="text" id="height" name="height" value="{{user.height}}" placeholder="신장(키)"
+            required="required" style="margin-bottom:20px;" />
         </div>
         <div id="p1" class="btn-group" data-toggle="buttons">
           5. 운동횟수(주) :
@@ -99,7 +102,7 @@
     methods: {
 
       test_post: () => {
-        axios("http://13.112.232.65:8999/user_info/", {
+        axios("http://bp.aidetector.link/user_info/", {
           method: "post",
           data: {
             user_email: decodeURIComponent(document.cookie),
@@ -117,7 +120,7 @@
           .then((response) => {
             alert('저장되었습니다')
             console.log(response.data)
-            window.location.href = 'http://13.112.232.65:8999/mainpage/';
+            window.location.href = 'http://bp.aidetector.link/mainpage/';
           })
           .catch((error) => {
             alert('빈 칸이 있어요')

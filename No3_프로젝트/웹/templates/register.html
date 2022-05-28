@@ -22,7 +22,7 @@
     methods: {
 
       test_put: () => {
-        axios("http://13.112.232.65:8999/user_account/", {
+        axios("http://bp.aidetector.link/user_account/", {
           method: "put",
           data: {
             user_email: document.getElementById('user_email').value,
@@ -35,7 +35,7 @@
             console.log(response.data)
             if (response.data['status'] == true) {
               alert('welcome');
-              window.location.href = 'http://13.112.232.65:8999/mainpage';
+              window.location.href = 'http://bp.aidetector.link/mainpage/';
             } else {
               if (response.data['massage'] == 'pw') {
                 alert('check password');
