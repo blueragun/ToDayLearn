@@ -4,8 +4,8 @@
 n = int(input())
 arr = list(map(int, input().split()))
     
-arr = list(set(arr))
+arr = list(set(arr))  # set : 중복제거
 
-arr.sort(reverse=True)
+arr.sort(reverse=True) # 내림차순 정렬
 
 print(arr[1])
