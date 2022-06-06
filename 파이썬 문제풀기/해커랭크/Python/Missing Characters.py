@@ -29,7 +29,7 @@ def missingCharacters(s):
         
     c = sorted(c)  # 오름차순으로 정렬한다.
     
-    c.strip() # 공백없이 붙인다
+    c = ''.join(c) # 공백없이 붙인다 / 리스트는 strip()을 사용할 수 없다
     
     return(c)
         
